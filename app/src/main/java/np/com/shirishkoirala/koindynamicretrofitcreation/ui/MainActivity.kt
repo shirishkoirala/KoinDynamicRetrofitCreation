@@ -9,6 +9,7 @@ import np.com.shirishkoirala.koindynamicretrofitcreation.databinding.ActivityMai
 import np.com.shirishkoirala.koindynamicretrofitcreation.repositories.CatsRepository
 import np.com.shirishkoirala.koindynamicretrofitcreation.services.CatsAPI
 import np.com.shirishkoirala.koindynamicretrofitcreation.util.Constants
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.qualifier.named
@@ -49,6 +50,10 @@ class MainActivity : ComponentActivity() {
 
                 single<CatsRepository> {
                     CatsRepository(get())
+                }
+
+                viewModel {
+                    CatsViewModel(get())
                 }
             }).run {
                 startActivity(Intent(this@MainActivity, CatsActivity::class.java))

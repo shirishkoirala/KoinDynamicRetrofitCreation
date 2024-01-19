@@ -11,9 +11,5 @@ val viewModelModule = module {
         MainViewModel(get())
     }
 
-    viewModel {
-        CatsViewModel(get())
-    }
-
     single { MainRepository(get()) }
 }
